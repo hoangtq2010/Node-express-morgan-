@@ -25,5 +25,4 @@ dishRouter.route('/')   //tuyen bo diem cuoi tai 1 vi tri duy nhat
     res.end('Deleting all the dishes!');
 });
 
-
 module.exports = dishRouter;
