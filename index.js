@@ -1,8 +1,11 @@
 const express = require('express');
 const http = require('http');
 
+const dishRouter = require('./routes/dishRouter');
+
 const hostname = 'localhost';
 const port = 3000;
+
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
@@ -12,6 +15,7 @@ app.use(morgan('dev'));
 
 app.use(bodyParser.json());
 
+/** 
 app.all('/dishes', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type','text/html');
@@ -20,7 +24,7 @@ app.all('/dishes', (req, res, next) => {
 app.get('/dishes', (req, res, next) =>{
     res.end('Will send all the dishes to you!');
 });
-app.post('/dishes', (req, res, next) =>{
+app.post('/dish', (req, res, next) =>{
     res.end('Will add the dishes: ' + req.body.name + ' with details: ' + req.body.description);
 });
 app.put('/dishes', (req, res, next) => {
@@ -29,10 +33,9 @@ app.put('/dishes', (req, res, next) => {
 });
 app.delete('/dishes', (req, res, next) =>{
     res.end('Deleting all the dishes!');
-});
+});*/
 
-
-
+/** 
 app.get('/dishes/:dishId', (req, res, next) =>{
     res.end('Will send details of the dishes: ' + req.params.dishId + ' to you!');
 });
@@ -46,10 +49,10 @@ app.put('/dishes/:dishId', (req, res, next) => {
 });
 app.delete('/dishes/:dishId', (req, res, next) =>{
     res.end('Deleting dish: ' + req.params.dishId);
-});
+});*/
 
 
-
+app.use('/dishes', dishRouter); //bat ky request den /dishes se dc xu li boi disRouter
 
 app.use(express.static(__dirname + '/public'));
 
