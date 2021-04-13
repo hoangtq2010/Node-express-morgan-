@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 
 const dishRouter = require('./routes/dishRouter');
+const promotionRouter = require('./routes/promotionRouter');
+const leaderRouter = require('./routes/leaderRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -53,6 +55,12 @@ app.delete('/dishes/:dishId', (req, res, next) =>{
 
 
 app.use('/dishes', dishRouter); //bat ky request den /dishes se dc xu li boi disRouter
+
+
+app.use('/promotions', promotionRouter);
+
+app.use('/leaders', leaderRouter);
+
 
 app.use(express.static(__dirname + '/public'));
 
